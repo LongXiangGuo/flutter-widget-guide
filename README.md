@@ -1,16 +1,72 @@
-# message_list_demo
+# widget guide
 
-A new Flutter project.
 
-## Getting Started
+# TODO
 
-This project is a starting point for a Flutter application.
+MaskFilter
+BlenMode
+Shader
+Shadow
+BlendMode
+Assets管理与加载
+图片的编码格式优缺点选择
 
-A few resources to get you started if this is your first Flutter project:
+```mermaid
+classDiagram
+    class Widget {
+        <<abstract>>
+    }
+    class StatelessWidget {
+        <<abstract>>
+    }
+    class ButtonStyleButton {
+        <<abstract>>
+        +ButtonStyle style
+        +void onPressed()
+        +Widget child
+    }
+    class TextButton {
+        +TextButton({Key key, VoidCallback onPressed, Widget child, ButtonStyle style})
+    }
+    class ElevatedButton {
+        +ElevatedButton({Key key, VoidCallback onPressed, Widget child, ButtonStyle style})
+    }
+    class OutlinedButton {
+        +OutlinedButton({Key key, VoidCallback onPressed, Widget child, ButtonStyle style})
+    }
+    class ButtonStyle {
+        +MaterialStateProperty~TextStyle~ textStyle
+        +MaterialStateProperty~Color~ backgroundColor
+        +MaterialStateProperty~Color~ foregroundColor
+        +MaterialStateProperty~Color~ overlayColor
+        +MaterialStateProperty~double~ elevation
+        +MaterialStateProperty~EdgeInsetsGeometry~ padding
+        +MaterialStateProperty~Size~ minimumSize
+        +MaterialStateProperty~BorderSide~ side
+        +MaterialStateProperty~OutlinedBorder~ shape
+    }
+    class MaterialStateProperty~T~ {
+        <<interface>>
+        +T resolve(Set~MaterialState~ states)
+    }
+    class TextButtonTheme {
+        +TextButtonThemeData style
+    }
+    class ElevatedButtonTheme {
+        +ElevatedButtonThemeData style
+    }
+    class OutlinedButtonTheme {
+        +OutlinedButtonThemeData style
+    }
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    Widget <|-- StatelessWidget
+    StatelessWidget <|-- ButtonStyleButton
+    ButtonStyleButton <|-- TextButton
+    ButtonStyleButton <|-- ElevatedButton
+    ButtonStyleButton <|-- OutlinedButton
+    ButtonStyleButton --> ButtonStyle : 使用
+    ButtonStyle --> MaterialStateProperty : 包含
+    TextButtonTheme --> TextButton : 主题传递
+    ElevatedButtonTheme --> ElevatedButton : 主题传递
+    OutlinedButtonTheme --> OutlinedButton : 主题传递 
+```

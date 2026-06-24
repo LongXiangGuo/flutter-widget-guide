@@ -131,6 +131,7 @@ class ExampleWrapper extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       padding: const EdgeInsets.all(8),
+      clipBehavior: Clip.hardEdge,
       child: child,
     );
   }
@@ -351,7 +352,7 @@ class _DemoBox extends StatelessWidget {
       children: [
         Container(
           width: 80,
-          height: 50,
+          height: 44,
           decoration: decoration,
           child: const Center(child: Text('')),
         ),
@@ -766,7 +767,7 @@ class _ClipBox extends StatelessWidget {
       children: [
         Container(
           width: 80,
-          height: 50,
+          height: 44,
           decoration: BoxDecoration(
             color: Colors.cyan,
             borderRadius: BorderRadius.circular(16),
@@ -774,7 +775,7 @@ class _ClipBox extends StatelessWidget {
           clipBehavior: clip,
           child: const ColoredBox(color: Colors.cyan),
         ),
-        const SizedBox(height: 6),
+        const SizedBox(height: 4),
         Text(label, style: const TextStyle(fontSize: 11), textAlign: TextAlign.center),
       ],
     );
