@@ -1,3 +1,4 @@
+import '../basic/custom_scrollview.dart';
 import '../models/widget_info.dart';
 import '../models/widget_category.dart';
 import '../basic/containter.dart';
@@ -68,6 +69,43 @@ class WidgetRegistry {
       docPath: 'docs/basic_layout/6.icon.md',
       demoBuilder: () => const IconDemo(),
       tags: ['图标', 'icon', 'material', '按钮'],
+    ),
+    // ========== 滚动组件 ==========
+    WidgetInfo(
+      name: 'CustomScrollView',
+      nameCn: '自定义滚动视图',
+      description: '使用 Sliver 机制构建复杂滚动布局，支持 SliverAppBar、SliverList、SliverGrid、SliverPersistentHeader 等多种 Sliver 组合',
+      category: WidgetCategory.scrolling,
+      docPath: 'docs/scrolling/custom_scroll_view.md',
+      demoBuilder: () => const CustomScrollViewDemo(),
+      tags: ['滚动', 'sliver', '列表', '网格', '折叠', '粘性头部', '性能优化'],
+    ),
+    WidgetInfo(
+      name: 'CustomScrollViewWithController',
+      nameCn: '带滚动控制的 CustomScrollView',
+      description: '使用 ScrollController 控制滚动位置，实时监听滚动偏移，实现返回顶部按钮、滚动状态监听等功能',
+      category: WidgetCategory.scrolling,
+      docPath: 'docs/scrolling/custom_scroll_view_controller.md',
+      demoBuilder: () => const CustomScrollViewWithController(),
+      tags: ['滚动', '控制器', 'scroll', '监听', '回到顶部', 'scrollcontroller'],
+    ),
+    WidgetInfo(
+      name: 'NestedScrollView',
+      nameCn: '嵌套滚动视图',
+      description: '处理嵌套滚动场景，支持 SliverAppBar 与 TabBarView 联动，实现顶部折叠 + 底部多标签切换的复杂页面',
+      category: WidgetCategory.scrolling,
+      docPath: 'docs/scrolling/nested_scroll_view.md',
+      demoBuilder: () => const NestedScrollExample(),
+      tags: ['嵌套滚动', 'tab', 'sliverappbar', 'tabbarview', '折叠'],
+    ),
+    WidgetInfo(
+      name: 'CustomScrollViewPerformance',
+      nameCn: 'CustomScrollView 性能优化',
+      description: '展示 cacheExtent、SliverFixedExtentList、shrinkWrap 等性能优化参数的使用方法和效果',
+      category: WidgetCategory.scrolling,
+      docPath: 'docs/scrolling/custom_scroll_view_performance.md',
+      demoBuilder: () => const CustomScrollViewPerformanceDemo(),
+      tags: ['性能', '优化', 'cache', 'fixedextent', '缓存', '预加载'],
     ),
     // TODO: 添加更多 Widget
   ];

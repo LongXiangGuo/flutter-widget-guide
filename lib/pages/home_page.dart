@@ -140,11 +140,16 @@ class _WidgetListTile extends StatelessWidget {
         ),
         title: Row(
           children: [
-            Text(info.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Expanded(
+              child: Text(
+                info.name,
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, overflow: TextOverflow.ellipsis),
+              ),
+            ),
             const SizedBox(width: 8),
             Text(
               info.nameCn,
-              style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+              style: TextStyle(fontSize: 13, color: Colors.grey[600], overflow: TextOverflow.ellipsis),
             ),
           ],
         ),
